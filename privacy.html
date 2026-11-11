@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<!--
+  BEFORE PUBLISHING
+  1. Support contact is set in section 17; keep it in sync with store/PRIVACY.md.
+  2. Confirm the hosting provider named in section 6 matches your production server.
+  3. Host this file at a public HTTPS URL and paste that URL into the Chrome Web Store listing.
+  4. Keep this page, the store "Privacy practices" tab, and the extension UI in sync.
+  This page loads no external fonts, scripts, or trackers.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Privacy policy for the Untrap YouTube Chrome extension, including accounts, Plus subscriptions, local storage, AI features, and data deletion.">
+<title>Privacy Policy - Untrap YouTube</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f6f7fb;
+    --surface: #ffffff;
+    --text: #14161c;
+    --muted: #5b6172;
+    --line: #dfe3ec;
+    --accent: #2f5bd7;
+    --accent-soft: #e9eefc;
+    --radius: 14px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b0d13;
+      --surface: #12151d;
+      --text: #e8ebf3;
+      --muted: #a2a9ba;
+      --line: #252a36;
+      --accent: #8fb0ff;
+      --accent-soft: #1a2235;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 32px 20px 72px; }
+  header.page {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 28px 28px 24px;
+    margin-bottom: 24px;
+  }
+  .eyebrow {
+    margin: 0 0 6px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 38px); line-height: 1.15; letter-spacing: -.02em; }
+  .dates { margin: 0; color: var(--muted); font-size: 14px; }
+  .lede { margin: 14px 0 0; color: var(--text); }
+  .lede + .lede { margin-top: 10px; }
+
+  .summary {
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 24px 0;
+  }
+  .summary h2 { margin: 0 0 10px; font-size: 17px; }
+  .summary ul { margin: 0; padding-left: 20px; }
+  .summary li + li { margin-top: 6px; }
+
+  nav.toc {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 24px;
+    margin: 24px 0;
+  }
+  nav.toc h2 { margin: 0 0 8px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  nav.toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 32px; }
+  nav.toc li { margin: 3px 0; break-inside: avoid; }
+  nav.toc a { color: var(--accent); text-decoration: none; }
+  nav.toc a:hover { text-decoration: underline; }
+
+  section.doc {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 26px 28px;
+    margin: 18px 0;
+  }
+  section.doc h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    line-height: 1.25;
+    letter-spacing: -.01em;
+    scroll-margin-top: 20px;
+  }
+  section.doc h3 { margin: 20px 0 6px; font-size: 16px; }
+  section.doc p { margin: 10px 0; }
+  section.doc ul, section.doc ol { margin: 10px 0; padding-left: 22px; }
+  section.doc li + li { margin-top: 5px; }
+  section.doc li > ul { margin-top: 5px; }
+  strong { font-weight: 650; }
+  code {
+    font: .92em/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: var(--accent-soft);
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    padding: 1px 5px;
+  }
+  .table-wrap { overflow-x: auto; margin: 14px 0; border: 1px solid var(--line); border-radius: 10px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  th { background: var(--accent-soft); font-size: 13px; letter-spacing: .02em; }
+  tr:last-child td { border-bottom: 0; }
+  a { color: var(--accent); }
+  footer.page {
+    margin-top: 28px;
+    padding: 20px 4px 0;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 13.5px;
+  }
+  footer.page p { margin: 6px 0; }
+  @media (max-width: 640px) {
+    .wrap { padding: 18px 12px 56px; }
+    header.page, section.doc, nav.toc, .summary { padding: 20px 18px; }
+    nav.toc ol { columns: 1; }
+  }
+  @media print {
+    :root { --bg: #fff; --surface: #fff; --text: #000; --muted: #333; --line: #ccc; --accent: #000; --accent-soft: #f2f2f2; }
+    body { font-size: 11pt; }
+    .wrap { max-width: none; padding: 0; }
+    nav.toc { display: none; }
+    section.doc { border: 0; padding: 0; margin: 16pt 0; break-inside: avoid-page; }
+    header.page, .summary { border: 1px solid #ccc; }
+    a { color: #000; text-decoration: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="page">
+  <p class="eyebrow">Untrap YouTube</p>
+  <h1>Privacy Policy</h1>
+  <p class="dates">Last updated: 11 November 2026</p>
+  <p class="lede">Untrap YouTube ("Untrap", "we", "us") is a Chrome extension that gives you control over what YouTube shows and how much time you spend there. This policy explains what the extension and its billing backend handle, why, where data goes, how long it is kept, and how you can delete it.</p>
+  <p class="lede">It covers the extension and the backend at <code>https://api.untrapyoutube.tech</code>. It does not cover YouTube, Google, Stripe, or any other service you use directly. Those services have their own privacy policies.</p>
+  <p class="lede">Untrap YouTube is not affiliated with, endorsed by, or sponsored by YouTube or Google.</p>
+</header>
+
+<div class="summary">
+  <h2>In plain language</h2>
+  <ul>
+    <li>Untrap works without an account. Settings, statistics, notes, and filters stay in your browser.</li>
+    <li>An account is optional. If you create one, we store your email, display name, and a securely hashed password.</li>
+    <li>Plus is paid through Stripe. We never receive your full card number, CVC, or expiry date.</li>
+    <li>Some Plus features send text to our backend and then to a service provider: caption text for translation, transcripts for AI chapters, song details for lyrics, and voice audio for transcription.</li>
+    <li>We do not sell your data, show ads, use analytics, or track you across websites.</li>
+    <li>You can delete local data in the extension, cancel Plus in the Stripe portal, and ask us to delete your account or billing record.</li>
+  </ul>
+</div>
+
+<nav class="toc" aria-label="Contents">
+  <h2>On this page</h2>
+  <ol>
+    <li><a href="#local">What is stored on your device</a></li>
+    <li><a href="#access">What the extension can access on YouTube</a></li>
+    <li><a href="#account">Optional Untrap account</a></li>
+    <li><a href="#plus">Plus, Stripe, and payment information</a></li>
+    <li><a href="#ai">AI, translation, lyrics, and voice</a></li>
+    <li><a href="#sharing">What leaves your device</a></li>
+    <li><a href="#logs">Server logs and IP addresses</a></li>
+    <li><a href="#use">How we use information</a></li>
+    <li><a href="#retention">How long we keep information</a></li>
+    <li><a href="#deletion">Deleting your data and your choices</a></li>
+    <li><a href="#security">Security</a></li>
+    <li><a href="#international">International processing</a></li>
+    <li><a href="#children">Children</a></li>
+    <li><a href="#never">What we never do</a></li>
+    <li><a href="#limited-use">Chrome Web Store Limited Use</a></li>
+    <li><a href="#changes">Changes to this policy</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</nav>
+
+<section class="doc" id="local">
+  <h2>1. What is stored on your device</h2>
+  <p>Most Untrap data never leaves your browser. It is kept in <code>chrome.storage.local</code> and is only accessible to the extension.</p>
+
+  <h3>Settings and preferences</h3>
+  <ul>
+    <li>Feature toggles, channel and keyword filters, profanity word lists, appearance and layout settings, custom CSS, keyboard shortcuts, and presets.</li>
+    <li>Focus-mode settings, daily watch budgets, and schedules.</li>
+  </ul>
+
+  <h3>Statistics and activity counters</h3>
+  <ul>
+    <li>Daily watch time, number of videos opened, Shorts blocked, cards, videos and channels hidden, elements removed, profanity muted, and focus-mode usage.</li>
+    <li>These counters are stored as daily totals. They do not contain video IDs or page URLs, and they are automatically deleted after 120 days.</li>
+  </ul>
+
+  <h3>Notes, bookmarks, and Video X-Ray</h3>
+  <ul>
+    <li>Notes, timestamp bookmarks (with the saved position in the video), and X-Ray chapter outlines.</li>
+    <li>A list of up to 120 videos you used the HUD on, containing the video ID, title, channel name, and the time you last used the HUD on that video.</li>
+    <li>Up to 80 X-Ray outlines, each containing chapter titles, summaries, timestamps, and the video title.</li>
+  </ul>
+
+  <h3>Profanity activity</h3>
+  <ul>
+    <li>When the profanity filter runs, the extension records the matched word, the channel name, the video ID, and the time. It keeps up to 60 events for the current day.</li>
+    <li>This is a local record only. Comment and chat text is not stored.</li>
+  </ul>
+
+  <h3>Other local data</h3>
+  <ul>
+    <li>A random installation ID (a UUID) used to link the browser to a Plus subscription.</li>
+    <li>Plus status and the payment summary described in section 4.</li>
+    <li>Your account session token and basic profile if you sign in (section 3).</li>
+    <li>A custom focus-timer sound, stored as a local data URL.</li>
+  </ul>
+
+  <p>You can delete statistics with <strong>Clear stats</strong>, delete individual notes, bookmarks, and X-Ray entries in the HUD or the library, and remove everything by uninstalling the extension.</p>
+</section>
+
+<section class="doc" id="access">
+  <h2>2. What the extension can access on YouTube</h2>
+  <p>Untrap requests the minimum permissions it needs:</p>
+  <ul>
+    <li><strong>storage</strong> &mdash; save settings and local data.</li>
+    <li><strong>alarms</strong> &mdash; run scheduled modes and focus timers.</li>
+    <li><strong>contextMenus</strong> &mdash; add "Block this channel" and "Add selection to profanity filter" actions.</li>
+    <li><strong>scripting</strong> &mdash; inject the page helper that reads caption tracks and applies player behaviour.</li>
+    <li><strong>Host access</strong> &mdash; <code>youtube.com</code>, <code>m.youtube.com</code>, <code>youtube-nocookie.com</code>, <code>suggestqueries.google.com</code>, and the Untrap billing backend.</li>
+  </ul>
+  <p>The extension does <strong>not</strong> request your browsing history, tabs, cookies, geolocation, or access to all websites.</p>
+  <p>On YouTube pages, the extension reads on-screen text such as video titles, channel names, comments, live chat, and captions so it can hide, filter, or censor them. That reading happens locally in your browser. The extension does not read your YouTube password, and it does not read your Google or YouTube cookies. Requests made to YouTube from the page use the browser session that is already there, because the code runs on the YouTube page.</p>
+</section>
+
+<section class="doc" id="account">
+  <h2>3. Optional Untrap account</h2>
+  <p>An account is optional. You can use every Free feature and buy Plus without one.</p>
+  <p>If you create an account, we store on our backend:</p>
+  <ul>
+    <li>your email address and display name;</li>
+    <li>a salted, hashed password (scrypt). We never store the plain password;</li>
+    <li>a session token, stored server-side only as a SHA-256 hash, which expires after 30 days;</li>
+    <li>account creation and update timestamps.</li>
+  </ul>
+  <p>The extension stores the session token and your basic profile in <code>chrome.storage.local</code> so you stay signed in. Signing out ends the session and removes the stored token from the extension.</p>
+  <p>Accounts currently use email and password only. We do not yet offer email verification or self-service password reset; contact us if you need help with account access or deletion.</p>
+</section>
+
+<section class="doc" id="plus">
+  <h2>4. Untrap Plus, Stripe, and payment information</h2>
+  <p>If you start a trial or buy Plus, the extension sends a random installation ID to our backend and receives your subscription status. Our backend stores:</p>
+  <ul>
+    <li>the installation ID;</li>
+    <li>the plan (monthly or yearly), subscription status, trial start and end dates, current period end, and whether the subscription cancels at the period end;</li>
+    <li>Stripe customer and subscription identifiers;</li>
+    <li>a payment summary containing the card brand, the last four digits, and whether the card is credit or debit.</li>
+  </ul>
+  <p><strong>Full card numbers, CVCs, and expiry dates never reach the extension or our backend.</strong> They are entered on Stripe's hosted checkout page and handled by Stripe. Stripe also collects your email address and, depending on your country and the payment method, a billing address. Stripe processes that data under its own privacy policy. We receive payment and subscription events from Stripe so we can activate or end Plus.</p>
+  <p>The payment summary and subscription status are also cached in <code>chrome.storage.local</code> so the extension can show your plan offline.</p>
+  <p>Deleting the extension or its local data does not cancel a subscription. Cancel through the Stripe customer portal, which you can open from the Plus page.</p>
+</section>
+
+<section class="doc" id="ai">
+  <h2>5. AI features, translation, lyrics, and voice</h2>
+  <p>These features work only when you use them. Some of them send text or audio to our backend and then to a service provider.</p>
+
+  <h3>AI Architect and Your Own YouTube Algorithm</h3>
+  <ul>
+    <li>The prompt you type or speak is sent to our backend. If an AI provider is configured, the backend forwards it to that provider (currently an OpenAI-compatible API). If no provider is configured, the backend uses deterministic rules and nothing is forwarded.</li>
+    <li>We do not store the prompt after the request completes. The resulting settings are stored only on your device.</li>
+  </ul>
+
+  <h3>Video X-Ray</h3>
+  <ul>
+    <li>The video ID, title, chapter timestamps, and the caption transcript are sent to our backend. If an AI provider is configured, the transcript is forwarded to it; otherwise the backend builds the outline with local rules.</li>
+    <li>When X-Ray is enabled in your workspace profile, it can build automatically for videos you open. You can turn this off in the HUD settings.</li>
+    <li>The resulting chapters are stored locally on your device.</li>
+  </ul>
+
+  <h3>Subtitle and lyrics translation</h3>
+  <ul>
+    <li>The current caption line or queued caption lines are sent to our backend and then to the configured translation provider: Google Translate, or an OpenAI-compatible provider when one is configured.</li>
+    <li>Translated lines are cached in the backend's memory for 30 minutes so repeat requests are cheaper. They are not stored with your account.</li>
+    <li>For a song without captions, the artist, title, and a lyrics search query are sent to our backend and to lyrics.ovh. Lyrics results are cached in memory for 12 hours.</li>
+  </ul>
+
+  <h3>Voice control</h3>
+  <ul>
+    <li>The microphone is used only after you press the microphone button and grant the browser's microphone permission.</li>
+    <li>Chrome's built-in speech recognition may send audio to Google to convert speech to text. If speech recognition is unavailable or does not produce text, a short audio recording may be sent to our backend and transcribed by an OpenAI-compatible speech-to-text service or by a local Whisper model, depending on how the backend is configured.</li>
+    <li>We do not store recordings or transcripts after the request completes.</li>
+  </ul>
+
+  <p>We do not use your prompts, transcripts, captions, lyrics queries, or voice recordings to train our own models. Third-party providers process data under their own policies.</p>
+</section>
+
+<section class="doc" id="sharing">
+  <h2>6. What leaves your device, and who receives it</h2>
+  <p>We share data only with the recipients below, only for the purpose shown, and only when the related feature is used.</p>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Recipient</th><th>Data</th><th>Purpose</th><th>When</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Untrap backend (<code>api.untrapyoutube.tech</code>)</td>
+          <td>Account details, installation ID, subscription status, prompts, transcripts, caption text, lyrics queries, voice audio</td>
+          <td>Run the features you request and manage entitlements</td>
+          <td>When you sign in, buy Plus, or use a backend feature</td>
+        </tr>
+        <tr>
+          <td>Stripe</td>
+          <td>Payment method, billing address, email, subscription details</td>
+          <td>Process payments, manage subscriptions, handle tax</td>
+          <td>When you start a trial, buy Plus, or open the billing portal</td>
+        </tr>
+        <tr>
+          <td>Google Translate</td>
+          <td>Caption text</td>
+          <td>Translate subtitles</td>
+          <td>When you use translation</td>
+        </tr>
+        <tr>
+          <td>Google speech recognition</td>
+          <td>Voice audio</td>
+          <td>Convert speech to text in Chrome</td>
+          <td>When you use voice control and Chrome's speech API is active</td>
+        </tr>
+        <tr>
+          <td>Google Fonts</td>
+          <td>Font name and your IP address</td>
+          <td>Load a custom font you selected</td>
+          <td>Only when you choose a non-default font</td>
+        </tr>
+        <tr>
+          <td>Google Chrome Sync</td>
+          <td>Settings, presets, and Plus configuration</td>
+          <td>Back up and sync across your Chrome profile</td>
+          <td>Only when a Plus user presses <strong>Push to sync</strong></td>
+        </tr>
+        <tr>
+          <td>OpenAI (or another configured AI provider)</td>
+          <td>Prompts, transcripts, voice audio</td>
+          <td>Generate AI plans, chapters, or transcriptions</td>
+          <td>Only when an AI provider is configured and you use the feature</td>
+        </tr>
+        <tr>
+          <td>lyrics.ovh</td>
+          <td>Artist, song title, search query</td>
+          <td>Look up song lyrics</td>
+          <td>When you open lyrics for a song</td>
+        </tr>
+        <tr>
+          <td>Hostinger (VPS hosting)</td>
+          <td>Server logs: IP address, request time, path, status, user agent</td>
+          <td>Host the backend, keep it secure, diagnose errors</td>
+          <td>Whenever the backend is contacted</td>
+        </tr>
+        <tr>
+          <td>YouTube / Google</td>
+          <td>Search queries, video metadata requests, thumbnail requests</td>
+          <td>Provide YouTube features you asked for</td>
+          <td>During normal YouTube use</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Chrome Sync</h3>
+  <p>The optional <strong>Push to sync</strong> feature writes a backup of your settings, presets, and Plus configuration to <code>chrome.storage.sync</code>. That data is stored in your Google account under Google's terms, not on our servers. We never receive it. Statistics, notes, bookmarks, and X-Ray outlines are not synced.</p>
+  <p>We do not sell data, rent it, or share it for advertising. We do not share data with data brokers or information resellers.</p>
+</section>
+
+<section class="doc" id="logs">
+  <h2>7. Server logs and IP addresses</h2>
+  <p>Like most servers, our backend and its hosting provider keep standard logs when the service is contacted. These logs may include your IP address, the date and time, the requested path, the response status, and your browser's user agent.</p>
+  <p>We use logs only to operate the service, prevent abuse, and diagnose errors. We do not use them to build profiles, and we do not use IP addresses to determine your location.</p>
+  <p>Rate limiting uses your IP address and installation ID in memory. Those counters are not written to disk and disappear when the service restarts.</p>
+</section>
+
+<section class="doc" id="use">
+  <h2>8. How we use information</h2>
+  <p>We use the information described above only to:</p>
+  <ul>
+    <li>provide, maintain, and secure the features you use;</li>
+    <li>remember your settings and keep your library on your device;</li>
+    <li>create and authenticate accounts;</li>
+    <li>process payments, trials, cancellations, and entitlements;</li>
+    <li>translate captions, build chapters, look up lyrics, and transcribe voice commands;</li>
+    <li>respond to support requests;</li>
+    <li>detect, prevent, and investigate abuse, fraud, or security issues;</li>
+    <li>comply with legal obligations.</li>
+  </ul>
+  <p>We do not use your data for advertising, profiling, credit decisions, or any purpose unrelated to the extension's single purpose.</p>
+</section>
+
+<section class="doc" id="retention">
+  <h2>9. How long we keep information</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Data</th><th>Where</th><th>Retention</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Watch statistics and focus usage</td><td>Your device</td><td>Rolling 120 days</td></tr>
+        <tr><td>Profanity activity</td><td>Your device</td><td>Current day, up to 60 events</td></tr>
+        <tr><td>Notes, bookmarks, X-Ray outlines, video list</td><td>Your device</td><td>Until you delete them; capped at 120 videos and 80 X-Ray outlines</td></tr>
+        <tr><td>Installation ID</td><td>Your device</td><td>Until you uninstall or reset it</td></tr>
+        <tr><td>Account session</td><td>Backend</td><td>30 days, then expired sessions are removed</td></tr>
+        <tr><td>Account record</td><td>Backend</td><td>Until you ask us to delete it</td></tr>
+        <tr><td>Subscription and payment summary</td><td>Backend</td><td>While the subscription is active, then as long as needed for tax, accounting, or legal obligations; deleted on request when no obligation applies</td></tr>
+        <tr><td>Translation cache</td><td>Backend memory</td><td>30 minutes</td></tr>
+        <tr><td>Lyrics cache</td><td>Backend memory</td><td>12 hours</td></tr>
+        <tr><td>Rate-limit counters</td><td>Backend memory</td><td>Until restart or the short rate-limit window ends</td></tr>
+        <tr><td>Server logs</td><td>Hosting provider</td><td>A limited period set by the hosting provider for security and diagnostics</td></tr>
+        <tr><td>Payment records held by Stripe</td><td>Stripe</td><td>Per Stripe's retention policy</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="doc" id="deletion">
+  <h2>10. Deleting your data and your choices</h2>
+
+  <h3>Local data</h3>
+  <ul>
+    <li>Use <strong>Clear stats</strong> to delete watch statistics and counters.</li>
+    <li>Delete individual notes, bookmarks, and X-Ray outlines in the HUD or the library.</li>
+    <li>Uninstalling the extension removes its local storage.</li>
+  </ul>
+
+  <h3>Account data</h3>
+  <ul>
+    <li>Contact us to delete your account. We will delete your email, display name, password hash, and sessions, unless we must keep something to comply with the law.</li>
+    <li>Signing out ends your session; it does not delete your account.</li>
+  </ul>
+
+  <h3>Billing data</h3>
+  <ul>
+    <li>Cancel Plus through the Stripe customer portal. Deleting local data or your account does not cancel a subscription.</li>
+    <li>Ask us to delete your entitlement record after cancellation. We may need to keep limited transaction records for tax, accounting, fraud prevention, or legal reasons.</li>
+  </ul>
+
+  <h3>Your rights</h3>
+  <p>Depending on where you live, you may have the right to access, correct, delete, export, or restrict the use of your personal data, or to object to certain processing. You may also have the right not to be discriminated against for exercising these rights.</p>
+  <p>To make a request, contact us at <a href="mailto:untrapyoutube@gmail.com">untrapyoutube@gmail.com</a>. We may ask you to verify that you control the account or installation before we act. We will respond within the time required by applicable law.</p>
+</section>
+
+<section class="doc" id="security">
+  <h2>11. Security</h2>
+  <p>We protect data with:</p>
+  <ul>
+    <li>HTTPS/TLS for all traffic between the extension, the backend, and Stripe;</li>
+    <li>salted scrypt password hashing;</li>
+    <li>SHA-256 hashing of session tokens on the server;</li>
+    <li>30-day session expiry;</li>
+    <li>access controls on the server and its data files;</li>
+    <li>no secrets or API keys inside the extension package;</li>
+    <li>no remote code: all JavaScript ships inside the extension.</li>
+  </ul>
+  <p>No method of transmission or storage is completely secure. If you believe your data has been compromised, contact us at <a href="mailto:untrapyoutube@gmail.com">untrapyoutube@gmail.com</a>.</p>
+</section>
+
+<section class="doc" id="international">
+  <h2>12. International processing</h2>
+  <p>Our backend and the service providers listed in section 6 may process data in countries other than yours, including the United States. Where required, we rely on appropriate safeguards for those transfers. You can contact us for more information about the safeguards that apply.</p>
+</section>
+
+<section class="doc" id="children">
+  <h2>13. Children</h2>
+  <p>Untrap is not directed to children under 13, and we do not knowingly collect personal data from children. If you believe a child has provided personal data, contact us and we will delete it.</p>
+</section>
+
+<section class="doc" id="never">
+  <h2>14. What we never do</h2>
+  <ul>
+    <li>We do not sell, rent, or trade your data.</li>
+    <li>We do not show ads or use your data for personalized advertising.</li>
+    <li>We do not use analytics, tracking pixels, or third-party telemetry.</li>
+    <li>We do not collect browsing history outside YouTube.</li>
+    <li>We do not use your data to determine creditworthiness or for lending.</li>
+    <li>We do not let humans read your data, except when you ask us for support, when it is necessary for security, or when the law requires it.</li>
+  </ul>
+</section>
+
+<section class="doc" id="limited-use">
+  <h2>15. Chrome Web Store Limited Use</h2>
+  <p>The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.</p>
+</section>
+
+<section class="doc" id="changes">
+  <h2>16. Changes to this policy</h2>
+  <p>We may update this policy when the extension or the law changes. We will revise the date at the top and, for material changes, provide a notice in the extension or on the store listing where required. Continuing to use Untrap after an update means you accept the revised policy.</p>
+</section>
+
+<section class="doc" id="contact">
+  <h2>17. Contact</h2>
+  <p>Questions, privacy requests, and security reports: <a href="mailto:untrapyoutube@gmail.com">untrapyoutube@gmail.com</a></p>
+  <p>For the purposes of applicable data protection law, the data controller is the publisher of Untrap YouTube identified on its Chrome Web Store listing.</p>
+</section>
+
+<footer class="page">
+  <p>Untrap YouTube is not affiliated with, endorsed by, or sponsored by YouTube or Google.</p>
+  <p>This page loads no external fonts, scripts, or trackers.</p>
+</footer>
+
+</div>
+</body>
+</html>
