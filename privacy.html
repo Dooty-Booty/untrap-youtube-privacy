@@ -228,6 +228,7 @@
     <li>A random installation ID (a UUID) used to link the browser to a Plus subscription.</li>
     <li>Plus status and the payment summary described in section 4.</li>
     <li>Your account session token and basic profile if you sign in (section 3).</li>
+    <li>Your one-time X-Ray choice (online processing allowed or on-device only).</li>
     <li>A custom focus-timer sound, stored as a local data URL.</li>
   </ul>
 
@@ -288,8 +289,9 @@
 
   <h3>Video X-Ray</h3>
   <ul>
-    <li>The video ID, title, chapter timestamps, and the caption transcript are sent to our backend. If an AI provider is configured, the transcript is forwarded to it; otherwise the backend builds the outline with local rules.</li>
-    <li>When X-Ray is enabled in your workspace profile, it can build automatically for videos you open. You can turn this off in the HUD settings.</li>
+    <li>The first time you use X-Ray, a one-time choice asks whether online processing is allowed. If you allow it, the video ID, title, chapter timestamps, and the caption transcript are sent to our backend. If an AI provider is configured, the transcript is forwarded to it; otherwise the backend builds the outline with local rules.</li>
+    <li>If you choose <strong>Keep on device</strong>, or do not answer, no transcript or caption text is sent: the extension builds the outline with a local topic-shift detector in your browser.</li>
+    <li>When X-Ray is enabled in your workspace profile, it can build automatically for videos you open after you make this choice. Automatic builds use online processing only if you allowed it; otherwise they stay on device. You can review or change the choice on the X-Ray tab and turn automatic building off in the HUD settings.</li>
     <li>The resulting chapters are stored locally on your device.</li>
   </ul>
 
@@ -302,7 +304,7 @@
 
   <h3>Voice control</h3>
   <ul>
-    <li>The microphone is used only after you press the microphone button and grant the browser's microphone permission.</li>
+    <li>The microphone is used only after you press the microphone button and grant the browser's microphone permission. A notice beside the microphone control states what may be sent before you record.</li>
     <li>Chrome's built-in speech recognition may send audio to Google to convert speech to text. If speech recognition is unavailable or does not produce text, a short audio recording may be sent to our backend and transcribed by an OpenAI-compatible speech-to-text service or by a local Whisper model, depending on how the backend is configured.</li>
     <li>We do not store recordings or transcripts after the request completes.</li>
   </ul>
